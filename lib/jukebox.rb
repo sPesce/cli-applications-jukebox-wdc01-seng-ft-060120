@@ -1,3 +1,4 @@
+require 'pry'
 songs = [
   "Phoenix - 1901",
   "Tokyo Police Club - Wait Up",
@@ -55,6 +56,9 @@ end#end play(string: songs)
 def prompt_user_song
     puts "Please enter a song name or number:"
 end
+def prompt_user_runner
+    puts "Please enter a command:"
+end
 #returns input string
 def get_user_input
     inp = gets.strip
@@ -63,4 +67,25 @@ end
 #a song name or a song number
 def invalid_input
     puts "Invalid input, please try again"
+end
+#message for exiting program
+def exit_jukebox
+    puts "Goodbye"
+end
+def run(songs)
+    prompt_user_runner
+    inp = get_user_input
+    while  inp != exit     
+        case inp
+      when "help"
+        help
+      when "play"
+        play(songs)
+      when "list"
+        list(songs)
+      else
+        invalid_input
+      end    
+    end
+    Goodbye
 end
